@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 700" width="1260" height="700" role="img" aria-labelledby="t d">
+  <title id="t">Onset strip with the panel open</title>
+  <desc id="d">Illustration of the Onset desktop strip: grip, server button, server address, ping readout, call pill showing who is speaking, and microphone, headphones, screen share, notifications, more and settings controls. Below it the panel is open on the Chat tab, with the Screen, Search, Audio and Video, Profile and Settings tabs, a live line with ping, buffer and loss, the rooms column and a text room.</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="-10%" r="90%">
+      <stop offset="0" stop-color="#131317"/>
+      <stop offset="0.6" stop-color="#08080a"/>
+    </radialGradient>
+    <clipPath id="pc"><rect x="40" y="112" width="1180" height="540" rx="20"/></clipPath>
+    <symbol id="i-mic" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></g></symbol>
+    <symbol id="i-hp" viewBox="0 0 24 24"><path d="M4 15v-3a8 8 0 0 1 16 0v3" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="13.5" width="5" height="7" rx="2" fill="currentColor"/><rect x="16" y="13.5" width="5" height="7" rx="2" fill="currentColor"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 13.5V8.5M9.5 11 12 8.5l2.5 2.5"/></g></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></g></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="6" cy="12" r="1.9"/><circle cx="12" cy="12" r="1.9"/><circle cx="18" cy="12" r="1.9"/></g></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round"><circle cx="12" cy="12" r="6.3" stroke-width="2"/><circle cx="12" cy="12" r="2.4" stroke-width="2"/><path stroke-width="3" d="M12 2.8v1.9M12 19.3v1.9M2.8 12h1.9M19.3 12h1.9M5.5 5.5l1.3 1.3M17.2 17.2l1.3 1.3M5.5 18.5l1.3-1.3M17.2 6.8l1.3-1.3"/></g></symbol>
+    <symbol id="i-dns" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="16" height="6.5" rx="1.5"/></g><circle cx="8" cy="7.25" r="1.2" fill="currentColor"/><circle cx="8" cy="16.75" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-voice" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="9" r="3.5"/><path d="M2.5 20c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5M17 6.5a4.5 4.5 0 0 1 0 6M19.8 4a8 8 0 0 1 0 11"/></g></symbol>
+    <symbol id="i-forum" viewBox="0 0 24 24"><path d="M4 5h11v8.5H8.5L4 17zM18 9h2v10.5L17 17H9v-1.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></g></symbol>
+    <symbol id="i-tune" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h8M17 7h3M4 17h3M12 17h8"/><circle cx="14.5" cy="7" r="2.5"/><circle cx="9.5" cy="17" r="2.5"/></g></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3"/><path d="M6.3 18.3a7 7 0 0 1 11.4 0"/></g></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-hash" viewBox="0 0 24 24"><path d="M10 4 8 20M16 4l-2 16M4.5 9h15M4 15h15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-vol" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z" fill="currentColor"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-at" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3.5"/><path d="M15.5 12v1.5a2.5 2.5 0 0 0 5 0V12a8.5 8.5 0 1 0-3.5 6.9"/></g></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-clip" viewBox="0 0 24 24"><path d="M20 11.5l-7.8 7.8a5 5 0 0 1-7-7l8.5-8.5a3.3 3.3 0 0 1 4.7 4.7l-8.3 8.3a1.7 1.7 0 0 1-2.4-2.4L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7zM14 3v5h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4.5v11M7 10.5l5 5 5-5M6 20h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+  <style>
+    .t{font-family:Manrope,'Segoe UI',system-ui,sans-serif}
+    .m{font-family:'JetBrains Mono',Consolas,monospace}
+  </style>
+
+  <!-- Desktop behind the object -->
+  <rect x="0.5" y="0.5" width="1259" height="699" rx="24" fill="url(#bg)" stroke="#ffffff" stroke-opacity="0.08"/>
+
+  <!-- The strip (free placement: full pill), 1180 px wide while the panel is open -->
+  <rect x="40.5" y="40.5" width="1179" height="61" rx="30.5" fill="#1a1a1d" stroke="#ffffff" stroke-opacity="0.16"/>
+  <!-- grip -->
+  <g fill="#ededf0" fill-opacity="0.4">
+    <circle cx="55.5" cy="65" r="1.5"/><circle cx="61.5" cy="65" r="1.5"/>
+    <circle cx="55.5" cy="71" r="1.5"/><circle cx="61.5" cy="71" r="1.5"/>
+    <circle cx="55.5" cy="77" r="1.5"/><circle cx="61.5" cy="77" r="1.5"/>
+  </g>
+  <!-- server button with connection dot -->
+  <use href="#i-dns" x="88" y="60" width="22" height="22" color="#ededf0"/>
+  <circle cx="108.5" cy="80.5" r="3.5" fill="#46c07a" stroke="#1a1a1d" stroke-width="2"/>
+  <rect x="127" y="60" width="1" height="22" fill="#ffffff" fill-opacity="0.16"/>
+  <!-- server address -->
+  <text x="140" y="76" class="t" font-size="14.5" font-weight="500" fill="#a0a0a8">203.0.113.42:8080</text>
+  <!-- ping readout -->
+  <rect x="288" y="62" width="46" height="18" rx="9" fill="#232327"/>
+  <text x="311" y="75" class="m" font-size="10.5" fill="#82828b" text-anchor="middle">18 ms</text>
+  <!-- call pill -->
+  <rect x="482" y="51" width="307" height="40" rx="20" fill="#262629"/>
+  <use href="#i-voice" x="496" y="61.5" width="19" height="19" color="#46c07a"/>
+  <text x="525" y="76" class="t" font-size="13.5" font-weight="600" fill="#ededf0">Maya is speaking</text>
+  <text x="653" y="75" class="m" font-size="11" fill="#82828b">12:47</text>
+  <g fill="#46c07a">
+    <rect x="696" y="68" width="2" height="6" rx="1"/>
+    <rect x="700" y="64" width="2" height="14" rx="1"/>
+    <rect x="704" y="66" width="2" height="10" rx="1"/>
+    <rect x="708" y="63" width="2" height="16" rx="1"/>
+  </g>
+  <rect x="720" y="56" width="64" height="30" rx="15" fill="#ededf0"/>
+  <text x="752" y="75.5" class="t" font-size="12.5" font-weight="700" fill="#08080a" text-anchor="middle">Leave</text>
+  <!-- controls -->
+  <use href="#i-mic" x="947.5" y="60.5" width="21" height="21" color="#c8c8cf"/>
+  <use href="#i-hp" x="991.5" y="60.5" width="21" height="21" color="#c8c8cf"/>
+  <use href="#i-share" x="1035.5" y="60.5" width="21" height="21" color="#c8c8cf"/>
+  <use href="#i-bell" x="1079.5" y="60.5" width="21" height="21" color="#c8c8cf"/>
+  <rect x="1090" y="55" width="17" height="17" rx="8.5" fill="#e5484d" stroke="#1a1a1d" stroke-width="2"/>
+  <text x="1098.5" y="67.5" class="t" font-size="10" font-weight="800" fill="#ffffff" text-anchor="middle">3</text>
+  <use href="#i-more" x="1123.5" y="60.5" width="21" height="21" color="#c8c8cf"/>
+  <rect x="1161" y="59" width="1" height="24" fill="#ffffff" fill-opacity="0.16"/>
+  <use href="#i-gear" x="1178.5" y="60.5" width="21" height="21" color="#c8c8cf"/>
+
+  <!-- The panel: a second object, 10 px below the strip -->
+  <rect x="40" y="112" width="1180" height="540" rx="20" fill="#0f0f11"/>
+  <g clip-path="url(#pc)">
+    <!-- tab bar -->
+    <rect x="40" y="112" width="1180" height="58" fill="#131315"/>
+    <rect x="40" y="170" width="1180" height="1" fill="#ffffff" fill-opacity="0.07"/>
+    <rect x="52" y="122" width="109" height="38" rx="10" fill="#262629"/>
+    <use href="#i-forum" x="65" y="131.5" width="19" height="19" color="#ededf0"/>
+    <text x="92" y="145.5" class="t" font-size="13" font-weight="600" fill="#ededf0">Chat</text>
+    <rect x="130" y="132" width="18" height="18" rx="9" fill="#e5484d"/>
+    <text x="139" y="145" class="t" font-size="10.5" font-weight="800" fill="#ffffff" text-anchor="middle">3</text>
+    <use href="#i-share" x="178" y="131.5" width="19" height="19" color="#8b8b92"/>
+    <text x="205" y="145.5" class="t" font-size="13" font-weight="600" fill="#8b8b92">Screen</text>
+    <use href="#i-search" x="280" y="131.5" width="19" height="19" color="#8b8b92"/>
+    <text x="307" y="145.5" class="t" font-size="13" font-weight="600" fill="#8b8b92">Search</text>
+    <use href="#i-tune" x="383" y="131.5" width="19" height="19" color="#8b8b92"/>
+    <text x="410" y="145.5" class="t" font-size="13" font-weight="600" fill="#8b8b92">Audio &amp; Video</text>
+    <use href="#i-user" x="532" y="131.5" width="19" height="19" color="#8b8b92"/>
+    <text x="559" y="145.5" class="t" font-size="13" font-weight="600" fill="#8b8b92">Profile</text>
+    <use href="#i-gear" x="633" y="131.5" width="19" height="19" color="#8b8b92"/>
+    <text x="660" y="145.5" class="t" font-size="13" font-weight="600" fill="#8b8b92">Settings</text>
+    <!-- live line -->
+    <circle cx="930" cy="141" r="3.5" fill="#46c07a"/>
+    <text x="1166" y="145" class="m" font-size="11" fill="#82828b" text-anchor="end">ping 18 ms · buffer 40 ms · 0.0% loss</text>
+    <use href="#i-close" x="1184" y="132" width="18" height="18" color="#c8c8cf"/>
+
+    <!-- rooms column -->
+    <rect x="40" y="171" width="240" height="490" fill="#0c0c0e"/>
+    <rect x="279" y="171" width="1" height="490" fill="#ffffff" fill-opacity="0.07"/>
+    <text x="60" y="198" class="t" font-size="10.5" font-weight="800" letter-spacing="1.05" fill="#82828b">TEXT ROOMS</text>
+    <rect x="50" y="206" width="220" height="36" rx="9" fill="#232327"/>
+    <use href="#i-hash" x="60" y="215" width="18" height="18" color="#ededf0" opacity="0.7"/>
+    <text x="87" y="229" class="t" font-size="14" font-weight="600" fill="#ededf0">general</text>
+    <use href="#i-hash" x="60" y="253" width="18" height="18" color="#ededf0" opacity="0.7"/>
+    <text x="87" y="267" class="t" font-size="14" font-weight="600" fill="#ededf0">design</text>
+    <rect x="242" y="253" width="18" height="18" rx="9" fill="#262629"/>
+    <text x="251" y="266" class="t" font-size="10.5" font-weight="700" fill="#a0a0a8" text-anchor="middle">2</text>
+    <use href="#i-hash" x="60" y="291" width="18" height="18" color="#ededf0" opacity="0.7"/>
+    <text x="87" y="305" class="t" font-size="14" font-weight="600" fill="#ededf0">releases</text>
+    <rect x="242" y="291" width="18" height="18" rx="9" fill="#e5484d"/>
+    <text x="251" y="304" class="t" font-size="10.5" font-weight="800" fill="#ffffff" text-anchor="middle">1</text>
+
+    <text x="60" y="348" class="t" font-size="10.5" font-weight="800" letter-spacing="1.05" fill="#82828b">VOICE ROOMS</text>
+    <rect x="50" y="356" width="220" height="36" rx="9" fill="#46c07a" fill-opacity="0.09"/>
+    <use href="#i-vol" x="60" y="365" width="18" height="18" color="#46c07a"/>
+    <text x="87" y="379" class="t" font-size="14" font-weight="600" fill="#7fe0a6">Lobby</text>
+    <!-- people in the voice room -->
+    <circle cx="92" cy="406" r="10" fill="#262629" stroke="#46c07a" stroke-width="2"/>
+    <text x="92" y="409.5" class="t" font-size="9.5" font-weight="800" fill="#ededf0" text-anchor="middle">M</text>
+    <text x="110" y="410.5" class="t" font-size="12.5" fill="#ededf0">Maya</text>
+    <circle cx="92" cy="434" r="10" fill="#262629"/>
+    <text x="92" y="437.5" class="t" font-size="9.5" font-weight="800" fill="#a0a0a8" text-anchor="middle">D</text>
+    <text x="110" y="438.5" class="t" font-size="12.5" fill="#8b8b92">Deniz</text>
+    <circle cx="92" cy="462" r="10" fill="#262629"/>
+    <text x="92" y="465.5" class="t" font-size="9.5" font-weight="800" fill="#a0a0a8" text-anchor="middle">A</text>
+    <text x="110" y="466.5" class="t" font-size="12.5" fill="#8b8b92">Alex</text>
+    <use href="#i-vol" x="60" y="489" width="18" height="18" color="#8b8b92" opacity="0.7"/>
+    <text x="87" y="503" class="t" font-size="14" font-weight="500" fill="#8b8b92">Quiet room</text>
+
+    <text x="60" y="546" class="t" font-size="10.5" font-weight="800" letter-spacing="1.05" fill="#82828b">DIRECT MESSAGES</text>
+    <use href="#i-at" x="60" y="563" width="18" height="18" color="#8b8b92" opacity="0.7"/>
+    <text x="87" y="577" class="t" font-size="14" font-weight="500" fill="#8b8b92">Deniz</text>
+    <use href="#i-plus" x="60" y="605" width="18" height="18" color="#8b8b92"/>
+    <text x="87" y="619" class="t" font-size="13.5" font-weight="600" fill="#8b8b92">New room</text>
+
+    <!-- head row -->
+    <use href="#i-hash" x="300" y="188" width="18" height="18" color="#ededf0" opacity="0.7"/>
+    <text x="325" y="202" class="t" font-size="15" font-weight="700" fill="#ededf0">general</text>
+    <text x="396" y="202" class="t" font-size="12.5" fill="#82828b">Persistent room · history is kept on the server</text>
+    <rect x="1120.5" y="180.5" width="79" height="33" rx="9" fill="none" stroke="#ffffff" stroke-opacity="0.07"/>
+    <use href="#i-search" x="1132" y="188.5" width="17" height="17" color="#8b8b92"/>
+    <text x="1156" y="201" class="m" font-size="10.5" fill="#82828b">Ctrl K</text>
+    <rect x="280" y="224" width="940" height="1" fill="#ffffff" fill-opacity="0.07"/>
+
+    <!-- messages -->
+    <circle cx="317" cy="263" r="17" fill="#262629"/>
+    <text x="317" y="268" class="t" font-size="13" font-weight="800" fill="#a0a0a8" text-anchor="middle">D</text>
+    <text x="346" y="258" class="t" font-size="14" font-weight="700" fill="#ededf0">Deniz</text>
+    <text x="394" y="258" class="m" font-size="11" fill="#82828b">21:04</text>
+    <text x="346" y="280" class="t" font-size="14" fill="#c8c8cf">The server is on 1.0 now. Paste the invite from the control panel to connect.</text>
+
+    <circle cx="317" cy="323" r="17" fill="#262629"/>
+    <text x="317" y="328" class="t" font-size="13" font-weight="800" fill="#a0a0a8" text-anchor="middle">M</text>
+    <text x="346" y="318" class="t" font-size="14" font-weight="700" fill="#ededf0">Maya</text>
+    <text x="388" y="318" class="m" font-size="11" fill="#82828b">21:06</text>
+    <text x="346" y="340" class="t" font-size="14" fill="#c8c8cf">In. Voice sounds clean on my side.</text>
+
+    <rect x="292" y="360" width="916" height="62" rx="10" fill="#46c07a" fill-opacity="0.08"/>
+    <rect x="292" y="360" width="2" height="62" fill="#46c07a"/>
+    <circle cx="317" cy="383" r="17" fill="#262629"/>
+    <text x="317" y="388" class="t" font-size="13" font-weight="800" fill="#a0a0a8" text-anchor="middle">D</text>
+    <text x="346" y="378" class="t" font-size="14" font-weight="700" fill="#ededf0">Deniz</text>
+    <text x="394" y="378" class="m" font-size="11" fill="#82828b">21:07</text>
+    <text x="346" y="400" class="t" font-size="14" fill="#c8c8cf"><tspan fill="#7fe0a6" font-weight="600">@alex</tspan> can you share the build window?</text>
+
+    <circle cx="317" cy="455" r="17" fill="#262629"/>
+    <text x="317" y="460" class="t" font-size="13" font-weight="800" fill="#a0a0a8" text-anchor="middle">M</text>
+    <text x="346" y="450" class="t" font-size="14" font-weight="700" fill="#ededf0">Maya</text>
+    <text x="388" y="450" class="m" font-size="11" fill="#82828b">21:09</text>
+    <text x="346" y="472" class="t" font-size="14" fill="#c8c8cf">Notes from today:</text>
+    <rect x="346.5" y="482.5" width="279" height="51" rx="11" fill="#131316" stroke="#ffffff" stroke-opacity="0.07"/>
+    <use href="#i-file" x="360" y="496" width="22" height="22" color="#a0a0a8"/>
+    <text x="394" y="504" class="t" font-size="13" font-weight="600" fill="#ededf0">meeting-notes.pdf</text>
+    <text x="394" y="522" class="m" font-size="11" fill="#82828b">1.2 MB</text>
+    <use href="#i-down" x="592" y="498" width="20" height="20" color="#c8c8cf"/>
+
+    <!-- composer -->
+    <rect x="300.5" y="590.5" width="899" height="45" rx="12" fill="#17171a" stroke="#ffffff" stroke-opacity="0.1"/>
+    <use href="#i-clip" x="314" y="603" width="20" height="20" color="#c8c8cf"/>
+    <text x="348" y="618" class="t" font-size="14" fill="#82828b">Message #general — use @ to mention</text>
+    <rect x="1128" y="597" width="64" height="32" rx="9" fill="#262629"/>
+    <text x="1160" y="617.5" class="t" font-size="13" font-weight="700" fill="#82828b" text-anchor="middle">Send</text>
+  </g>
+  <rect x="40.5" y="112.5" width="1179" height="539" rx="19.5" fill="none" stroke="#ffffff" stroke-opacity="0.16"/>
+</svg>
