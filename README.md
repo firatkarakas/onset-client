@@ -5,6 +5,8 @@
 <p align="center">
   <a href="https://github.com/firatkarakas/onset-client/releases/latest"><b>Download the latest release</b></a>
   &nbsp;·&nbsp;
+  <a href="https://onsetvoice.com">Website</a>
+  &nbsp;·&nbsp;
   <a href="https://github.com/firatkarakas/onset-host">Host a server</a>
   &nbsp;·&nbsp;
   <a href="#verify-your-download">Verify your download</a>
@@ -214,7 +216,7 @@ Open **Settings → Apps → Installed apps**, find **Onset** and choose **Unins
 
 ## License
 
-Onset is freeware: free to use and not offered for profit. © Fırat Karakaş. All rights reserved. You may share unmodified copies of the official installer as long as you charge nothing for them. The full terms, including the warranty disclaimer, are in [LICENSE.txt](LICENSE.txt).
+This version of Onset is freeware: free to use, and you may share unmodified copies of the official installer as long as you charge nothing for them. The license applies to the version it ships with. Later versions may be offered under different terms, and the names and logo are not licensed. © Fırat Karakaş. All rights reserved. The full terms, including the warranty disclaimer, are in [LICENSE.txt](LICENSE.txt).
 
 Onset is built on open-source components. Their licenses and full license texts are in `THIRD-PARTY-NOTICES.md`, which is installed next to the program and attached to every release.
 
