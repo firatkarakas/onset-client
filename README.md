@@ -61,7 +61,7 @@ This repository hosts the Windows installers, release notes and update feed. Dow
 - System tray, start with Windows, desktop notifications and signed in-app updates.
 
 <p align="center">
-  <img src="assets/strip-panel.svg" alt="Illustration of the Onset strip with the panel open on the Chat tab. The strip shows the server button, a call pill reading 'Maya is speaking' with the call time, and the microphone, headphones, screen share, notifications, more, settings and close buttons. The panel has Chat, Screen, Search, Audio and Video, Profile and Settings tabs, a live line reading 'ping 18 ms, buffer 40 ms, 0.0% loss', a rooms column and a text room." width="100%">
+  <img src="assets/strip-panel.svg" alt="Illustration of the Onset strip with the panel open on the Chat tab. The strip shows the server button, a call pill in the middle reading 'Maya is speaking' with the call time, an unread count on its corner and the microphone and headphones buttons on it, then the settings, minimise and close buttons. The panel has Chat, Screen, Search, Audio and Video, Profile and Settings tabs, a live line reading 'ping 18 ms, buffer 40 ms, 0.0% loss', a rooms column and a text room." width="100%">
 </p>
 
 ## Install
@@ -97,7 +97,7 @@ This repository hosts the Windows installers, release notes and update feed. Dow
 
 ## Using the app
 
-**The strip.** From left to right: the grip (drag it to move the strip), the server button with a connection dot (hover it for the server's address), the call pill, then microphone, headphones, screen share, notifications, **More**, **Settings** and close. The call pill shows, in this order of priority, *Deafened*, *Muted*, who is speaking, or the room name, along with the call time and a level meter; click it to open the panel. When you are not in a call, it becomes **Join voice**, which opens the panel so you can pick a room. Your ping is on the panel's tab row.
+**The strip.** From left to right: the grip (drag it to move the strip), the server button with a connection dot (hover it for the server's address), the call pill in the middle, then **Settings**, minimise and close. The call pill shows, in this order of priority, *Deafened*, *Muted*, who is speaking, or the room name, along with the call time and a level meter, and carries the microphone and headphones buttons; click the name to open the panel. A red number on its corner counts unread messages. When you are not in a call, it becomes **Join voice**, which opens the panel so you can pick a room; your own shortcuts still mute and deafen. Your ping is on the panel's tab row.
 
 **The panel** has six tabs:
 
@@ -110,20 +110,9 @@ This repository hosts the Windows installers, release notes and update feed. Dow
 | **Profile** | Display name, avatar, password, theme and sign-out. |
 | **Settings** | Window behaviour, notifications, background shortcuts, updates and log export. |
 
-**More** has Leave (while you are in a call), Minimise, Close to the tray, Disconnect, Sign out and Quit Onset. People with the right role also see New room and Administration there. The close button on the strip puts Onset in the tray and keeps your call running; click the tray icon to bring the window back. Turn off **Settings → Close button keeps Onset in the tray** if you would rather it, and Alt+F4, quit Onset.
+**Where things are.** Share your screen from the panel's **Screen** tab, or with your sharing shortcut. To leave a call, use the red **Leave** button under the call in the panel, or right-click the voice room in the room list. The server button opens your saved servers, with **Disconnect** and, for people with the right role, **Administration**. **Sign out** is in **Profile**, **Quit Onset** is in **Settings** and in the tray menu, and **New room** is at the bottom of the room list. The close button on the strip puts Onset in the tray and keeps your call running; click the tray icon to bring the window back. Turn off **Settings → Close button keeps Onset in the tray** if you would rather it, and Alt+F4, quit Onset.
 
-**Keyboard.** These work while the app has focus and the cursor is not in a text field:
-
-| Key | Action |
-| --- | --- |
-| `M` / `K` | Microphone on or off / headphones on or off |
-| `E` | Start or stop sharing your screen |
-| `Space` | Hold to talk, when the microphone mode is push-to-talk |
-| `Ctrl` + `,` | Open settings |
-| `Ctrl` + `K` | Find any room, person or action |
-| `Ctrl` + `F` | Search the room you are reading |
-| `Alt` + `↑` / `↓` | Move through the room list |
-| `Esc` | Close the topmost layer |
+**Keyboard.** Calls are controlled only by the shortcuts you choose (below); Onset has no fixed keys of its own. The one key the window answers to is `Esc`, which closes the topmost layer: a menu, an image, the side column, then the panel.
 
 **Shortcuts in the background.** **Settings → Shortcuts that work everywhere** binds push-to-talk, push-to-mute, mute, deafen, start or stop sharing, and show or hide Onset. They work in any app, including full-screen games, and while Onset is minimised or in the tray. None is bound until you choose a key.
 
