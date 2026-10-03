@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 700" width="1260" height="700" role="img" aria-labelledby="t d">
   <title id="t">Onset strip with the panel open</title>
-  <desc id="d">Illustration of the Onset desktop strip: grip, server button, a call pill in the middle showing who is speaking, with the unread count on its corner and the microphone and headphones on it, then settings, minimize and close. Below it the panel is open on the Chat tab, with the Screen, Search, Audio and Video, Profile and Settings tabs, a live line with ping, buffer and loss, the rooms column and a text room.</desc>
+  <desc id="d">Illustration of the Onset desktop strip: grip, server button, a call pill in the middle showing who is speaking, with the unread count on its corner and the microphone and headphones on it, then settings, minimize and close. Below it the panel is open on the Chat tab, with the Screen, Search, Profile and Settings tabs, a live line with ping, buffer and loss, the rooms column and a text room.</desc>
   <defs>
     <radialGradient id="bg" cx="50%" cy="-10%" r="90%">
       <stop offset="0" stop-color="#131317"/>
@@ -15,7 +15,6 @@
     <symbol id="i-voice" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="9" r="3.5"/><path d="M2.5 20c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5M17 6.5a4.5 4.5 0 0 1 0 6M19.8 4a8 8 0 0 1 0 11"/></g></symbol>
     <symbol id="i-forum" viewBox="0 0 24 24"><path d="M4 5h11v8.5H8.5L4 17zM18 9h2v10.5L17 17H9v-1.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
     <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></g></symbol>
-    <symbol id="i-tune" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h8M17 7h3M4 17h3M12 17h8"/><circle cx="14.5" cy="7" r="2.5"/><circle cx="9.5" cy="17" r="2.5"/></g></symbol>
     <symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3"/><path d="M6.3 18.3a7 7 0 0 1 11.4 0"/></g></symbol>
     <symbol id="i-min" viewBox="0 0 24 24"><path d="M6 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
@@ -88,12 +87,10 @@
     <text x="205" y="145.5" class="t" font-size="13" font-weight="600" fill="#8b8b92">Screen</text>
     <use href="#i-search" x="280" y="131.5" width="19" height="19" color="#8b8b92"/>
     <text x="307" y="145.5" class="t" font-size="13" font-weight="600" fill="#8b8b92">Search</text>
-    <use href="#i-tune" x="383" y="131.5" width="19" height="19" color="#8b8b92"/>
-    <text x="410" y="145.5" class="t" font-size="13" font-weight="600" fill="#8b8b92">Audio &amp; Video</text>
-    <use href="#i-user" x="532" y="131.5" width="19" height="19" color="#8b8b92"/>
-    <text x="559" y="145.5" class="t" font-size="13" font-weight="600" fill="#8b8b92">Profile</text>
-    <use href="#i-gear" x="633" y="131.5" width="19" height="19" color="#8b8b92"/>
-    <text x="660" y="145.5" class="t" font-size="13" font-weight="600" fill="#8b8b92">Settings</text>
+    <use href="#i-user" x="383" y="131.5" width="19" height="19" color="#8b8b92"/>
+    <text x="410" y="145.5" class="t" font-size="13" font-weight="600" fill="#8b8b92">Profile</text>
+    <use href="#i-gear" x="484" y="131.5" width="19" height="19" color="#8b8b92"/>
+    <text x="511" y="145.5" class="t" font-size="13" font-weight="600" fill="#8b8b92">Settings</text>
     <!-- live line -->
     <circle cx="930" cy="141" r="3.5" fill="#46c07a"/>
     <text x="1166" y="145" class="m" font-size="11" fill="#82828b" text-anchor="end">ping 18 ms · buffer 40 ms · 0.0% loss</text>
@@ -142,9 +139,8 @@
     <use href="#i-hash" x="300" y="188" width="18" height="18" color="#ededf0" opacity="0.7"/>
     <text x="325" y="202" class="t" font-size="15" font-weight="700" fill="#ededf0">general</text>
     <text x="396" y="202" class="t" font-size="12.5" fill="#82828b">Persistent room · history is kept on the server</text>
-    <rect x="1120.5" y="180.5" width="79" height="33" rx="9" fill="none" stroke="#ffffff" stroke-opacity="0.07"/>
-    <use href="#i-search" x="1132" y="188.5" width="17" height="17" color="#8b8b92"/>
-    <text x="1156" y="201" class="m" font-size="10.5" fill="#82828b">Ctrl K</text>
+    <rect x="1158.5" y="180.5" width="41" height="33" rx="9" fill="none" stroke="#ffffff" stroke-opacity="0.07"/>
+    <use href="#i-search" x="1170.5" y="188.5" width="17" height="17" color="#8b8b92"/>
     <rect x="280" y="224" width="940" height="1" fill="#ffffff" fill-opacity="0.07"/>
 
     <!-- messages -->
