@@ -61,7 +61,7 @@ This repository hosts the Windows installers, release notes and update feed. Dow
 - System tray, start with Windows, desktop notifications and signed in-app updates.
 
 <p align="center">
-  <img src="assets/strip-panel.svg" alt="Illustration of the Onset strip with the panel open on the Chat tab. The strip shows the server button, a call pill in the middle reading 'Maya is speaking' with the call time, an unread count on its corner and the microphone and headphones buttons on it, then the settings, minimise and close buttons. The panel has Chat, Screen, Search, Audio and Video, Profile and Settings tabs, a live line reading 'ping 18 ms, buffer 40 ms, 0.0% loss', a rooms column and a text room." width="100%">
+  <img src="assets/strip-panel.svg" alt="Illustration of the Onset strip with the panel open on the Chat tab. The strip shows the server button, a call pill in the middle reading 'Maya is speaking' with the call time, an unread count on its corner and the microphone and headphones buttons on it, then the settings, minimise and close buttons. The panel has Chat, Screen, Search, Profile and Settings tabs, a live line reading 'ping 18 ms, buffer 40 ms, 0.0% loss', a rooms column and a text room." width="100%">
 </p>
 
 ## Install
@@ -99,29 +99,37 @@ This repository hosts the Windows installers, release notes and update feed. Dow
 
 **The strip.** From left to right: the grip (drag it to move the strip), the server button with a connection dot (hover it for the server's address), the call pill in the middle, then **Settings**, minimise and close. The call pill shows, in this order of priority, *Deafened*, *Muted*, who is speaking, or the room name, along with the call time and a level meter, and carries the microphone and headphones buttons; click the name to open the panel. A red number on its corner counts unread messages. When you are not in a call, it becomes **Join voice**, which opens the panel so you can pick a room; your own shortcuts still mute and deafen. Your ping is on the panel's tab row.
 
-**The panel** has six tabs:
+**The panel** has five tabs:
 
 | Tab | What it is for |
 | --- | --- |
 | **Chat** | Rooms, direct messages, the conversation and the message box. In a voice room, the people in the call. |
 | **Screen** | The shared screen, stream quality, picture-in-picture and full screen, and who is watching. |
 | **Search** | Search messages and files. |
-| **Audio & Video** | Microphone and speakers, levels, microphone test, push-to-talk key, screen-share quality and live reception counters. |
 | **Profile** | Display name, avatar, password, theme and sign-out. |
-| **Settings** | Window behaviour, notifications, background shortcuts, updates and log export. |
+| **Settings** | Everything about this PC, one page at a time: **Voice**, **Screen share**, **Shortcuts**, **Notifications**, **Window** and **About** (see below). |
 
-**Where things are.** Share your screen from the panel's **Screen** tab, or with your sharing shortcut. To leave a call, use the red **Leave** button under the call in the panel, or right-click the voice room in the room list. The server button opens your saved servers, with **Disconnect** and, for people with the right role, **Administration**. **Sign out** is in **Profile**, **Quit Onset** is in **Settings** and in the tray menu, and **New room** is at the bottom of the room list. The close button on the strip puts Onset in the tray and keeps your call running; click the tray icon to bring the window back. Turn off **Settings → Close button keeps Onset in the tray** if you would rather it, and Alt+F4, quit Onset.
+**Settings** lists its pages on the left and shows one at a time:
+
+- **Voice**: microphone and speakers, input and output volume, **Test the microphone**, and the speech threshold: sound below it is not sent. With **Automatic speech threshold** on (the default) Onset sets it from the noise in your room, just above its quietest moments, and shows it on the live level meter while the microphone is in use; turn it off to drag the marker yourself, just under where your voice lands. Then the input mode (**Voice activity** or **Push to talk**, with its key and release delay) and processing (echo cancellation, noise suppression, automatic gain).
+- **Screen share**: the quality and frame rate a new share starts from, whether a share carries the whole PC's sound, and how loud other people's shares play.
+- **Shortcuts**: the keys that work everywhere (below).
+- **Notifications**: desktop notifications, interface sounds, and what a new message does to the strip.
+- **Window**: keeping the strip above other windows, the close button, starting with Windows, and **Quit Onset**.
+- **About**: updates and the installed version, call diagnostics, the event log, and live reception counters for the call.
+
+**Where things are.** Share your screen from the panel's **Screen** tab, or with your sharing shortcut. To leave a call, use the red **Leave** button under the call in the panel, or right-click the voice room in the room list. The server button opens your saved servers, with **Disconnect** and, for people with the right role, **Administration**. **Sign out** is in **Profile**, **Quit Onset** is in **Settings → Window** and in the tray menu, and **New room** is at the bottom of the room list. The close button on the strip puts Onset in the tray and keeps your call running; click the tray icon to bring the window back. Turn off **Settings → Window → Close button keeps Onset in the tray** if you would rather it, and Alt+F4, quit Onset.
 
 **Keyboard.** Calls are controlled only by the shortcuts you choose (below); Onset has no fixed keys of its own. The one key the window answers to is `Esc`, which closes the topmost layer: a menu, an image, the side column, then the panel.
 
-**Shortcuts in the background.** **Settings → Shortcuts that work everywhere** binds push-to-talk, push-to-mute, mute, deafen, start or stop sharing, and show or hide Onset. They work in any app, including full-screen games, and while Onset is minimised or in the tray. None is bound until you choose a key.
+**Shortcuts in the background.** **Settings → Shortcuts** binds push-to-talk, push-to-mute, mute, deafen, start or stop sharing, and show or hide Onset. They work in any app, including full-screen games, and while Onset is minimised or in the tray. None is bound until you choose a key.
 
 - Click the action's key, then press the key, mouse button (middle or side) or combination you want. Let go to finish, or press `Esc` to cancel. The cross clears it.
 - Onset reads only the keys you bind. It never sees anything else you type, and it does not take the key away from the game.
 - A shortcut still works while you hold other keys, so push-to-talk keeps working while you run. A modifier bound on its own keeps its side: **Right Ctrl** is not **Left Ctrl**.
 - One key does one thing. Binding a key that another action uses moves it.
 
-The push-to-talk key is also next to the push-to-talk switch in **Audio & Video**.
+The push-to-talk key also appears in **Settings → Voice**, under the input mode, when push-to-talk is chosen.
 
 ## How it connects
 
@@ -153,7 +161,7 @@ The hash confirms that your download matches the published file. It does not rep
 
 ## Updates
 
-- The app checks for a new version shortly after it starts and every few hours while it stays open, using this repository's `latest.json`. When one is available, a banner shows the version and a **Restart** button; during a call the banner waits until the call ends. You can also check from **Settings → Updates → Check now**. Each package is verified against the updater signature built into the app before it is installed. Packages that fail the check are not installed.
+- The app checks for a new version shortly after it starts and every few hours while it stays open, using this repository's `latest.json`. When one is available, a banner shows the version and a **Restart** button; during a call the banner waits until the call ends. You can also check from **Settings → About → Check now**. Each package is verified against the updater signature built into the app before it is installed. Packages that fail the check are not installed.
 
 ## Security and privacy
 
@@ -207,8 +215,8 @@ On servers running Onset Host 1.0.1 or earlier, chat uses TCP while voice and sc
 <details>
 <summary><b>A shortcut does not work in a game</b></summary>
 
-- Check that the action has a key in **Settings → Shortcuts that work everywhere**. Nothing is bound until you choose a key.
-- Push-to-talk works only while the microphone mode is push-to-talk (**Audio & Video**).
+- Check that the action has a key in **Settings → Shortcuts**. Nothing is bound until you choose a key.
+- Push-to-talk works only while the input mode is push-to-talk (**Settings → Voice**).
 - If the game runs as administrator, try running Onset as administrator too.
 </details>
 
@@ -218,7 +226,7 @@ Open **Settings → Apps → Installed apps**, find **Onset** and choose **Unins
 
 ## Support
 
-Email **support@onsetvoice.com**, or report a bug on the [issue tracker](https://github.com/firatkarakas/onset-client/issues). Please include your Onset version (**Settings → Updates**, "Installed") and, if you can, the event log from **Settings → Diagnostics → Export log**. The log holds connection, voice and update events, no message content and no audio.
+Email **support@onsetvoice.com**, or report a bug on the [issue tracker](https://github.com/firatkarakas/onset-client/issues). Please include your Onset version (**Settings → About**, "Installed version") and, if you can, the event log from **Settings → About → Export log**. The log holds connection, voice and update events, no message content and no audio.
 
 Questions about a particular server, such as your account, a ban or what happens to your data there, go to the person who runs it. The developer cannot see or change anything on someone else's server.
 
