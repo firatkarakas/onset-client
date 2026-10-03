@@ -39,7 +39,7 @@ This repository hosts the Windows installers, release notes and update feed. Dow
 
 **Voice**
 - Opus voice at 48 kHz from a native audio engine, with echo cancellation, noise suppression, a microphone gate and packet-loss concealment.
-- Voice travels over UDP with Onset's own encrypted protocol, GCA3 (ChaCha20-Poly1305, keys for each session, replay protection).
+- Voice travels over UDP with Onset's own encrypted protocol, GCA4 (ChaCha20-Poly1305, keys for each session, replay protection).
 - Volume and "Mute for me only" for each person, set from that person's menu. It affects only what you hear.
 - Voice activation or push-to-talk with an adjustable release delay, so the end of a word is not cut off, plus push-to-mute.
 - Shortcuts that keep working while Onset is in the background, in games too: push-to-talk, push-to-mute, mute, deafen, screen sharing, and show or hide. Use any key, mouse button or combination. The game still gets the key.
@@ -83,11 +83,11 @@ This repository hosts the Windows installers, release notes and update feed. Dow
 ## Connect to a server
 
 <p align="center">
-  <img src="assets/invite-flow.svg" alt="Three steps: 1, the owner hosts Onset Host; 2, the owner clicks Copy invite in the control panel, which gives an address such as 203.0.113.42:8080 followed by a hash sign and the server's SHA-256 fingerprint; 3, you paste the invite into the app's Server address field, and the app checks and remembers the fingerprint." width="100%">
+  <img src="assets/invite-flow.svg" alt="Three steps: 1, the owner hosts Onset Host; 2, the owner clicks Copy invite in the control panel, which gives an address such as 203.0.113.42:8080 followed by a hash sign and the server's SHA-256 fingerprint; 3, you paste the invite into the app's Server address field, the app reports that 203.0.113.42:8080 answered, and it checks and remembers the fingerprint." width="100%">
 </p>
 
 1. **Get an invite from the server owner.** It looks like `203.0.113.42:8080#` followed by 64 hexadecimal characters. That long part is the SHA-256 fingerprint of the server's certificate. If the server only allows invited people to register, also ask for the **invite token**.
-2. **Paste the invite into Server address.** The card checks the server before you type a password. When it answers, you see a line such as `203.0.113.42:8080 answered · voice 9000 · screen 9001`.
+2. **Paste the invite into Server address.** The card checks the server before you type a password. When it answers, you see a line such as `203.0.113.42:8080 answered`.
 3. **Create an account or sign in.** For a new account, choose **Register a new account**, pick a username (at least 2 characters) and a password (at least 8), and paste the invite token into the **Bootstrap token** field. Then choose **Create the account**. Accounts belong to one server, so you register separately on each server you join.
 4. After you connect, the card turns into the strip. Your session is remembered, so you do not have to type your password again next time.
 
@@ -126,14 +126,15 @@ The push-to-talk key is also next to the push-to-talk switch in **Audio & Video*
 ## How it connects
 
 <p align="center">
-  <img src="assets/architecture.svg" alt="Diagram: each desktop client talks to your Onset server over three paths: HTTPS and WSS control on TCP 8080 with a pinned self-signed identity, GCA3 encrypted voice on UDP 9000, and WebRTC screen sharing with DTLS-SRTP on UDP 9001. The server stores data in SQLite on the same PC. No third-party servers are involved." width="100%">
+  <img src="assets/architecture.svg" alt="Diagram: each desktop client talks to your Onset server on one UDP port, 8080 by default, which carries HTTPS and WSS control over QUIC with a pinned self-signed identity, GCA4 encrypted voice, and WebRTC screen sharing with DTLS-SRTP. The server stores data in SQLite on the same PC. No third-party servers are involved." width="100%">
 </p>
 
-- **Control** (sign-in, chat, files) always uses HTTPS and secure WebSockets (WSS), and the certificate must match the pinned fingerprint.
-- **Voice** uses UDP with the GCA3 protocol. The server relays each speaker separately, which is how you can set each person's volume on your side.
+- Everything goes to **one UDP port** on the server, the one in the invite (8080 by default).
+- **Control** (sign-in, chat, files) always uses HTTPS and secure WebSockets (WSS), carried over QUIC, and the certificate must match the pinned fingerprint.
+- **Voice** uses the GCA4 protocol. The server relays each speaker separately, which is how you can set each person's volume on your side.
 - **Screen sharing** uses WebRTC through the server's forwarding unit (SFU), encrypted with DTLS-SRTP.
 
-The ports are chosen by the server owner. The defaults are TCP 8080, UDP 9000 and UDP 9001.
+The app also connects to servers running Onset Host 1.0.1 or earlier, which use TCP 8080, UDP 9000 and UDP 9001.
 
 ## Verify your download
 
@@ -158,7 +159,7 @@ The hash confirms that your download matches the published file. It does not rep
 
 - **Nothing is hosted by the developers.** There are no Onset accounts, relays, analytics or crash reports sent to the project. The app talks only to the servers you add, and to GitHub when it checks for updates.
 - **Server identity.** Every server has its own long-lived certificate. The app pins its fingerprint from the invite, or on first contact. If a server ever presents a different identity, the app refuses to connect and shows both the remembered and the presented fingerprints. It connects only if you explicitly choose **Trust the new identity**, which you should do only after confirming the new fingerprint with the server owner.
-- **Encryption in transit.** Control traffic uses TLS (HTTPS/WSS), voice uses GCA3 (ChaCha20-Poly1305), and screen sharing uses DTLS-SRTP. This protects traffic between you and the server. The server decrypts and re-encrypts voice for each listener and stores messages and files, so whoever runs the server can technically access them. This is not end-to-end encryption. Only join servers run by people you trust.
+- **Encryption in transit.** Control traffic uses TLS (HTTPS/WSS over QUIC), voice uses GCA4 (ChaCha20-Poly1305), and screen sharing uses DTLS-SRTP. This protects traffic between you and the server. The server decrypts and re-encrypts voice for each listener and stores messages and files, so whoever runs the server can technically access them. This is not end-to-end encryption. Only join servers run by people you trust.
 - **Your sign-in** is stored on your PC, protected with Windows DPAPI for your Windows user account. Passwords are stored on the server only as bcrypt hashes.
 - **Call diagnostics.** While you are in a call, the app sends audio and screen-share statistics (packet counts, buffer depth, loss, device names, app version) to *the server you are connected to*, not to the developers. Audio, video, message text and file names are never included. The server owner can turn this off.
 
@@ -182,13 +183,19 @@ The server presented a different certificate from the one the app remembered. Ei
 - Check the address and port. The owner's control panel shows the exact **Client address** and **Invite**.
 - Make sure the server is running (its panel shows **Server online**).
 - On a local network, the server PC's Windows network profile must be **Private** for its firewall rule to allow you in.
-- Over the internet, the owner's router must forward the control TCP port and both UDP ports (see the [server README](https://github.com/firatkarakas/onset-host#ports-and-firewall)).
+- Over the internet, the owner's router must forward the server's UDP port (see the [server README](https://github.com/firatkarakas/onset-host#ports-and-firewall)).
+</details>
+
+<details>
+<summary><b>"answered over TCP only" or "This server needs UDP port …"</b></summary>
+
+The server answered on its TCP port, but its UDP port, which the app uses for everything, did not. Ask the owner to forward the port for **UDP**, not only TCP. If the server works from other networks, the network you are on may block UDP, as some workplace and public networks do.
 </details>
 
 <details>
 <summary><b>Chat works but there is no voice, or screen shares do not load</b></summary>
 
-Chat uses TCP, but voice and screen sharing use UDP. If chat works and calls are silent, the server's voice UDP port (default 9000) is blocked or not forwarded. If screen shares do not start, check the screen UDP port (default 9001). Check that you and the server are both on version 1.0.
+On servers running Onset Host 1.0.1 or earlier, chat uses TCP while voice and screen sharing use their own UDP ports (9000 and 9001 by default); check that those are forwarded. On current servers everything uses one UDP port, so if chat works, ask the owner to check that the server is in **Internet** mode for people outside their network.
 </details>
 
 <details>
