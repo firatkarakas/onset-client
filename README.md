@@ -32,6 +32,7 @@ This repository hosts the Windows installers, release notes and update feed. Dow
 - [Security and privacy](#security-and-privacy)
 - [Troubleshooting](#troubleshooting)
 - [Uninstall](#uninstall)
+- [Support](#support)
 - [License](#license)
 
 ## Features
@@ -40,12 +41,13 @@ This repository hosts the Windows installers, release notes and update feed. Dow
 - Opus voice at 48 kHz from a native audio engine, with echo cancellation, noise suppression, a microphone gate and packet-loss concealment.
 - Voice travels over UDP with Onset's own encrypted protocol, GCA3 (ChaCha20-Poly1305, keys for each session, replay protection).
 - Volume and "Mute for me only" for each person, set from that person's menu. It affects only what you hear.
-- Voice activation or push-to-talk. Push-to-talk and the mute and deafen shortcuts are global, so they work while another app has focus.
+- Voice activation or push-to-talk with an adjustable release delay, so the end of a word is not cut off, plus push-to-mute.
+- Shortcuts that keep working while Onset is in the background, in games too: push-to-talk, push-to-mute, mute, deafen, screen sharing, and show or hide. Use any key, mouse button or combination. The game still gets the key.
 
 **Text and files**
 - Text rooms whose history is kept on the server, plus direct messages. Direct messages are text only; calls happen in voice rooms.
-- Replies, edits, deletes, `@mentions`, unread counts and search across messages and files.
-- File sharing with resumable uploads (up to 512 MiB per file by default; the server owner sets the limits) and inline image previews.
+- Replies, edits, deletes, `@mentions`, emoji reactions, unread counts and search across messages and files, with an emoji picker in the message box.
+- File sharing with resumable uploads (up to 512 MiB per file by default; the server owner sets the limits), downloads that pick up where they stopped if the connection drops, and inline image previews.
 - A ping or nudge for someone who is online.
 
 **Screen sharing**
@@ -59,7 +61,7 @@ This repository hosts the Windows installers, release notes and update feed. Dow
 - System tray, start with Windows, desktop notifications and signed in-app updates.
 
 <p align="center">
-  <img src="assets/strip-panel.svg" alt="Illustration of the Onset strip with the panel open on the Chat tab. The strip shows the server address, an 18 ms ping readout, a call pill reading 'Maya is speaking' with a Leave button, and the microphone, headphones, screen share, notifications, more and settings buttons. The panel has Chat, Screen, Search, Audio and Video, Profile and Settings tabs, a live line reading 'ping 18 ms, buffer 40 ms, 0.0% loss', a rooms column and a text room." width="100%">
+  <img src="assets/strip-panel.svg" alt="Illustration of the Onset strip with the panel open on the Chat tab. The strip shows the server button, a call pill reading 'Maya is speaking' with the call time, and the microphone, headphones, screen share, notifications, more, settings and close buttons. The panel has Chat, Screen, Search, Audio and Video, Profile and Settings tabs, a live line reading 'ping 18 ms, buffer 40 ms, 0.0% loss', a rooms column and a text room." width="100%">
 </p>
 
 ## Install
@@ -95,7 +97,7 @@ This repository hosts the Windows installers, release notes and update feed. Dow
 
 ## Using the app
 
-**The strip.** From left to right: the grip (drag it to move the strip), the server button with a connection dot, the server address (click it to open the panel), the ping readout, the call pill, then microphone, headphones, screen share, notifications, **More** and **Settings**. The call pill shows, in this order of priority, *Deafened*, *Muted*, who is speaking, or the room name, along with the call time and a level meter. When you are not in a call, it becomes **Join voice**.
+**The strip.** From left to right: the grip (drag it to move the strip), the server button with a connection dot (hover it for the server's address), the call pill, then microphone, headphones, screen share, notifications, **More**, **Settings** and close. The call pill shows, in this order of priority, *Deafened*, *Muted*, who is speaking, or the room name, along with the call time and a level meter; click it to open the panel. When you are not in a call, it becomes **Join voice**, which opens the panel so you can pick a room. Your ping is on the panel's tab row.
 
 **The panel** has six tabs:
 
@@ -106,9 +108,9 @@ This repository hosts the Windows installers, release notes and update feed. Dow
 | **Search** | Search messages and files. |
 | **Audio & Video** | Microphone and speakers, levels, microphone test, push-to-talk key, screen-share quality and live reception counters. |
 | **Profile** | Display name, avatar, password, theme and sign-out. |
-| **Settings** | Window behaviour, notifications, global shortcuts, updates and log export. |
+| **Settings** | Window behaviour, notifications, background shortcuts, updates and log export. |
 
-**More** has Minimise, Close to the tray, Disconnect, Sign out and Quit Onset. People with the right role also see New room and Administration there. Closing to the tray keeps your call running; click the tray icon to bring the window back.
+**More** has Leave (while you are in a call), Minimise, Close to the tray, Disconnect, Sign out and Quit Onset. People with the right role also see New room and Administration there. The close button on the strip puts Onset in the tray and keeps your call running; click the tray icon to bring the window back. Turn off **Settings → Close button keeps Onset in the tray** if you would rather it, and Alt+F4, quit Onset.
 
 **Keyboard.** These work while the app has focus and the cursor is not in a text field:
 
@@ -123,7 +125,14 @@ This repository hosts the Windows installers, release notes and update feed. Dow
 | `Alt` + `↑` / `↓` | Move through the room list |
 | `Esc` | Close the topmost layer |
 
-The global shortcuts work even when another app has focus. They default to **Play/Pause** (mute) and **Stop** (deafen) on media keys, and **Ctrl+Shift+Space** for push-to-talk. Change them in **Settings** and **Audio & Video**.
+**Shortcuts in the background.** **Settings → Shortcuts that work everywhere** binds push-to-talk, push-to-mute, mute, deafen, start or stop sharing, and show or hide Onset. They work in any app, including full-screen games, and while Onset is minimised or in the tray. None is bound until you choose a key.
+
+- Click the action's key, then press the key, mouse button (middle or side) or combination you want. Let go to finish, or press `Esc` to cancel. The cross clears it.
+- Onset reads only the keys you bind. It never sees anything else you type, and it does not take the key away from the game.
+- A shortcut still works while you hold other keys, so push-to-talk keeps working while you run. A modifier bound on its own keeps its side: **Right Ctrl** is not **Left Ctrl**.
+- One key does one thing. Binding a key that another action uses moves it.
+
+The push-to-talk key is also next to the push-to-talk switch in **Audio & Video**.
 
 ## How it connects
 
@@ -154,7 +163,7 @@ The hash confirms that your download matches the published file. It does not rep
 
 ## Updates
 
-- The app checks for a new version shortly after it starts, using this repository's `latest.json`. When one is available, a banner shows the version and a **Restart** button. You can also check from **Settings → Updates → Check now**. Each package is verified against the updater signature built into the app before it is installed. Packages that fail the check are not installed.
+- The app checks for a new version shortly after it starts and every few hours while it stays open, using this repository's `latest.json`. When one is available, a banner shows the version and a **Restart** button; during a call the banner waits until the call ends. You can also check from **Settings → Updates → Check now**. Each package is verified against the updater signature built into the app before it is installed. Packages that fail the check are not installed.
 
 ## Security and privacy
 
@@ -200,14 +209,22 @@ Chat uses TCP, but voice and screen sharing use UDP. If chat works and calls are
 </details>
 
 <details>
-<summary><b>Global shortcuts do not work</b></summary>
+<summary><b>A shortcut does not work in a game</b></summary>
 
-Another app may already use the same key. Rebind the shortcut in **Settings → Global shortcuts**, or the push-to-talk key in **Audio & Video**.
+- Check that the action has a key in **Settings → Shortcuts that work everywhere**. Nothing is bound until you choose a key.
+- Push-to-talk works only while the microphone mode is push-to-talk (**Audio & Video**).
+- If the game runs as administrator, try running Onset as administrator too.
 </details>
 
 ## Uninstall
 
 Open **Settings → Apps → Installed apps**, find **Onset** and choose **Uninstall**. Settings, your remembered servers and your saved sign-in live in your Windows profile under `%APPDATA%\com.onset.desktop` and `%LOCALAPPDATA%\com.onset.desktop`. Delete those folders if you want to remove them as well. Messages and files are stored on the servers, not on your PC.
+
+## Support
+
+Email **support@onsetvoice.com**, or report a bug on the [issue tracker](https://github.com/firatkarakas/onset-client/issues). Please include your Onset version (**Settings → Updates**, "Installed") and, if you can, the event log from **Settings → Diagnostics → Export log**. The log holds connection, voice and update events, no message content and no audio.
+
+Questions about a particular server, such as your account, a ban or what happens to your data there, go to the person who runs it. The developer cannot see or change anything on someone else's server.
 
 ## Related
 
