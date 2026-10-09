@@ -159,13 +159,13 @@ The app also connects to servers running Onset Host 1.0.1 or earlier, which use 
 Each release includes a `SHA256SUMS` file. In PowerShell, from the folder you downloaded to:
 
 ```powershell
-$file = 'Onset-1.0.9-x64.msi'   # the file you downloaded
+$file = 'Onset-1.0.11-x64.msi'  # the file you downloaded
 $expected = (Select-String -Path .\SHA256SUMS -Pattern ([regex]::Escape($file) + '$')).Line.Split(' ')[0]
 $actual = (Get-FileHash ".\$file" -Algorithm SHA256).Hash
 if ($actual -eq $expected) { 'OK: the hash matches' } else { 'MISMATCH: do not install this file' }
 ```
 
-Or run `Get-FileHash .\Onset-1.0.9-x64.msi -Algorithm SHA256` and compare the result with the matching line in `SHA256SUMS` yourself (upper and lower case do not matter).
+Or run `Get-FileHash .\Onset-1.0.11-x64.msi -Algorithm SHA256` and compare the result with the matching line in `SHA256SUMS` yourself (upper and lower case do not matter).
 
 The hash confirms that your download matches the published file. It does not replace a code-signing certificate, which this project does not have. In-app updates are checked separately against the update signing key built into the app (see below).
 
@@ -177,8 +177,8 @@ The hash confirms that your download matches the published file. It does not rep
 
 ## Security and privacy
 
-- **No Onset accounts or relays.** The app talks to the servers you add and to GitHub when it checks for updates. From 1.0.9 it also sends the developers anonymous performance data unless you turn it off (below). Nothing you say, write or share goes anywhere but your servers.
-- **Anonymous performance data** (Onset 1.0.9 and later). Every five minutes the app sends a short report: call and screen-share quality, CPU and memory use, startup time, where it crashed if it did, why a connection failed, and, once per installation, coarse hardware facts (makers and ranges, never model names). It never includes messages, file names, user or display names, server addresses, device names, audio or video, and the IP address it comes from is not kept. Reports carry no identifier of any kind: the collector adds each one to the day's totals and keeps nothing else, so what is stored is anonymous. Onset says so the first time it runs and sends nothing before; **Settings → About** shows the last report exactly as it went and turns it off. Earlier versions send the developers nothing. Details are in the [privacy policy](https://onsetvoice.com/privacy/).
+- **No Onset accounts or relays.** The app talks to the servers you add and to GitHub when it checks for updates. It also sends the developers anonymous performance data, but only if you allow it (below). Nothing you say, write or share goes anywhere but your servers.
+- **Anonymous performance data** (Onset 1.0.9 and later). Every five minutes the app sends a short report: call and screen-share quality, CPU and memory use, startup time, where it crashed if it did, why a connection failed, and, once per installation, coarse hardware facts (makers and ranges, never model names). It never includes messages, file names, user or display names, server addresses, device names, audio or video, and the IP address it comes from is not kept. Reports carry no identifier of any kind: the collector adds each one to the day's totals and keeps nothing else, so what is stored is anonymous. From 1.0.11 Onset asks once, with **Send** and **Don't send**, and reads and sends nothing unless you choose **Send** (1.0.9 and 1.0.10 sent it after a notice, unless it was turned off). **Settings → About** shows the last report exactly as it went and turns it on or off. Earlier versions send the developers nothing. Details are in the [privacy policy](https://onsetvoice.com/privacy/).
 - **Server identity.** Every server has its own long-lived certificate. The app pins its fingerprint from the invite, or on first contact. If a server ever presents a different identity, the app refuses to connect and shows both the remembered and the presented fingerprints. It connects only if you explicitly choose **Trust the new identity**, which you should do only after confirming the new fingerprint with the server owner.
 - **End-to-end encrypted calls** (Onset 1.0.9 and later, on Onset Host 1.0.5 and later). Voice, screen sharing and share audio are encrypted with keys only the people in the call hold (DAVE: MLS key exchange, AES-GCM frames). The server relays the key exchange but never has a key. It does decide who is in a call, so Onset gives the keys only to people it shows in the room, and warns you if anyone else holds them. Compare the call's 30-digit code with the others: if it matches, only the people shown in the room can listen. Encryption hides what is said and shown, not who is in a call, when, or who is speaking. A room is not end-to-end encrypted while someone in it uses an older Onset, or if the server's owner turned encrypted calls off; the lock beside the server and the line in the voice room say so.
 - **Encryption in transit.** Everything else is protected between you and the server: control traffic with TLS (HTTPS/WSS over QUIC), voice with GCA4 (ChaCha20-Poly1305) and screen sharing with DTLS-SRTP. Messages and files are not end-to-end encrypted: the server stores them, so whoever runs it can technically read them. Only join servers run by people you trust.
