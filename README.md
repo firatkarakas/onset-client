@@ -5,6 +5,8 @@
 <p align="center">
   <a href="https://github.com/firatkarakas/onset-client/releases/latest"><b>Download the latest release</b></a>
   &nbsp;·&nbsp;
+  <a href="https://apps.microsoft.com/detail/9MVQJC12LBKD">Microsoft Store</a>
+  &nbsp;·&nbsp;
   <a href="https://onsetvoice.com">Website</a>
   &nbsp;·&nbsp;
   <a href="https://github.com/firatkarakas/onset-host">Host a server</a>
@@ -18,7 +20,7 @@
 
 Onset is a desktop app for group voice calls, text rooms and screen sharing on a server that you or a friend runs. There is no Onset account and no hosted service: the app connects straight to an [Onset Host](https://github.com/firatkarakas/onset-host) on someone's own Windows PC. It stays out of the way as a slim strip on the edge of your screen, and your call keeps running while you work in other windows.
 
-This repository hosts the Windows installers, release notes and update feed. Downloads are on the [Releases page](https://github.com/firatkarakas/onset-client/releases/latest).
+This repository hosts the Windows installers, release notes and update feed. Downloads are on the [Releases page](https://github.com/firatkarakas/onset-client/releases/latest). The same app is in the [Microsoft Store](https://apps.microsoft.com/detail/9MVQJC12LBKD) as **Onset Voice**. Onset is free; by downloading or installing it you agree to its [license](LICENSE.txt), and the app works as the [privacy policy](https://onsetvoice.com/privacy/) describes.
 
 
 ## Contents
@@ -39,26 +41,32 @@ This repository hosts the Windows installers, release notes and update feed. Dow
 
 **Voice**
 - Opus voice at 48 kHz from a native audio engine, with echo cancellation, noise suppression, a microphone gate and packet-loss concealment.
+- **End-to-end encrypted calls** (Onset 1.0.9 with Onset Host 1.0.5 or later): voice, screen sharing and the sound of a share are encrypted on your PC and opened only by the people in the call; the server that relays them has no keys. Onset uses DAVE, the open protocol Discord published. Everyone in the call sees the same 30-digit code to compare out loud, and a lock beside the server tells you whether the call is encrypted.
 - Voice travels over UDP with Onset's own encrypted protocol, GCA4 (ChaCha20-Poly1305, keys for each session, replay protection).
-- Volume and "Mute for me only" for each person, set from that person's menu. It affects only what you hear.
+- A speech threshold that follows the noise in your room by default, or one you set yourself on the live level meter, and a microphone test that names the microphone it hears and says when nothing arrives from it.
+- Volume and "Mute for me only" for each person, set from that person's menu, which opens from their seat in the call or their name in chat. It affects only what you hear.
 - Voice activation or push-to-talk with an adjustable release delay, so the end of a word is not cut off, plus push-to-mute.
 - Shortcuts that keep working while Onset is in the background, in games too: push-to-talk, push-to-mute, mute, deafen, screen sharing, and show or hide. Use any key, mouse button or combination. The game still gets the key.
 
 **Text and files**
 - Text rooms whose history is kept on the server, plus direct messages. Direct messages are text only; calls happen in voice rooms.
 - Replies, edits, deletes, `@mentions`, emoji reactions, unread counts and search across messages and files, with an emoji picker in the message box.
+- Display names and profile pictures (any image; Onset crops and shrinks it). Pictures in chat are shown whole, and a click opens them fitted to the screen.
 - File sharing with resumable uploads (up to 512 MiB per file by default; the server owner sets the limits), downloads that pick up where they stopped if the connection drops, and inline image previews.
 - A ping or nudge for someone who is online.
 
 **Screen sharing**
-- Share a window or a whole screen through the Windows picker. Choose 720p, 1080p or Source resolution at 15, 30 or 60 fps.
+- Share a window or a whole screen through the Windows picker, at 720p, 1080p or Source resolution and 30 or 60 fps. Shares use AV1 where your PC can encode it smoothly, which keeps text sharp at about a quarter of the bandwidth, and H.264 otherwise.
 - Sound from the shared app is included. When you share a window, only that app's audio is captured; when you share a screen, Onset's own audio is left out so nobody hears themselves echoed back.
-- Viewers can pop the stream out into a picture-in-picture window.
+- Up to five people in a voice room can share at once (Onset Host 1.0.3 or later). Watch one or several, laid out as **Focus**, **Grid** or **Single**; you hear the one in focus. A share sends you nothing until you choose to watch it.
+- See who is watching (Onset Host 1.0.4 or later), and the stream's frame rate, bitrate, loss and round trip.
+- Full screen fills the screen, with controls that float over the picture and step aside when the mouse rests, or pop a stream out into a picture-in-picture window.
 
 **Desktop**
-- A docked strip that snaps to the top or bottom edge of the screen, or floats wherever you drop it.
-- A ping readout on the strip, and ping, jitter-buffer depth and packet loss in the panel.
-- System tray, start with Windows, desktop notifications and signed in-app updates.
+- A docked strip that snaps to the top or bottom edge of the screen, or floats wherever you drop it. Grab it anywhere on its empty space; double-click there to open or close the panel.
+- Your ping on the panel's tab row, and during a call the jitter-buffer depth and packet loss.
+- Interface sounds: sixteen short cues for messages, pings, people joining and leaving, your microphone and headphones, and screens shared and watched, with their own volume.
+- System tray (the icon moves while someone in your call is talking), start with Windows, desktop notifications and signed in-app updates.
 
 <p align="center">
   <img src="assets/strip-panel.svg" alt="Illustration of the Onset strip with the panel open on the Chat tab. The strip shows the server button, a call pill in the middle reading 'Maya is speaking' with the call time, an unread count on its corner and the microphone and headphones buttons on it, then the settings, minimise and close buttons. The panel has Chat, Screen, Search, Profile and Settings tabs, a live line reading 'ping 18 ms, buffer 40 ms, 0.0% loss', a rooms column and a text room." width="100%">
@@ -71,7 +79,7 @@ This repository hosts the Windows installers, release notes and update feed. Dow
 - Windows 10 or Windows 11, 64-bit (x64).
 - Microsoft Edge WebView2 Runtime. Windows 11 already includes it. If it is missing, the installer downloads and installs it, which needs an internet connection.
 - A microphone and speakers or headphones for calls.
-- An Onset Host **1.0** to connect to, run by you or by someone you trust. See the [server repository](https://github.com/firatkarakas/onset-host).
+- An Onset Host to connect to, run by you or by someone you trust. Every 1.0 release works; several screen shares in one room need 1.0.3, seeing who is watching needs 1.0.4, and end-to-end encrypted calls need 1.0.5. See the [server repository](https://github.com/firatkarakas/onset-host).
 
 ### Steps
 
@@ -79,6 +87,8 @@ This repository hosts the Windows installers, release notes and update feed. Dow
 2. Optional, but a good idea: [check the file's hash](#verify-your-download).
 3. Run the MSI. The installer is not signed with a paid code-signing certificate, so Windows SmartScreen may show **Windows protected your PC**. After you have checked the hash, choose **More info**, then **Run anyway**.
 4. Start **Onset**. A small sign-in card appears in the middle of the screen.
+
+**From the Microsoft Store.** Install [Onset Voice](https://apps.microsoft.com/detail/9MVQJC12LBKD) instead of steps 1 to 3. It is the same app, installed and updated by the Store, with no SmartScreen warning. The Store publishes a new version after Microsoft has reviewed it, so it can arrive a few days after it appears here.
 
 ## Connect to a server
 
@@ -97,28 +107,28 @@ This repository hosts the Windows installers, release notes and update feed. Dow
 
 ## Using the app
 
-**The strip.** From left to right: the grip (drag it to move the strip), the server button with a connection dot (hover it for the server's address), the call pill in the middle, then **Settings**, minimise and close. The call pill shows, in this order of priority, *Deafened*, *Muted*, who is speaking, or the room name, along with the call time and a level meter, and carries the microphone and headphones buttons; click the name to open the panel. A red number on its corner counts unread messages. When you are not in a call, it becomes **Join voice**, which opens the panel so you can pick a room; your own shortcuts still mute and deafen. Your ping is on the panel's tab row.
+**The strip.** From left to right: the grip, the server button with a connection dot (hover it for the server's address), the call pill in the middle, then **Settings**, minimise and close. Drag the grip, or any empty part of the strip, to move it; double-click the empty part to open or close the panel. The call pill shows, in this order of priority, *Deafened*, *Muted*, who is speaking, or the room name, along with the call time and a level meter, and carries the microphone and headphones buttons; click the name to open the panel. A red number on its corner counts unread messages. When you are not in a call, it becomes **Join voice**, which opens the panel so you can pick a room; your own shortcuts still mute and deafen. When someone pings you, their name appears next to the server button for a few seconds. Your ping is on the panel's tab row.
 
 **The panel** has five tabs:
 
 | Tab | What it is for |
 | --- | --- |
-| **Chat** | Rooms, direct messages, the conversation and the message box. In a voice room, the people in the call. |
-| **Screen** | The shared screen, stream quality, picture-in-picture and full screen, and who is watching. |
+| **Chat** | Rooms, direct messages, the conversation and the message box. In a voice room, the people in the call: someone sharing has a **Live** badge, and pointing at their seat offers **Watch**. Right-click a seat for the person's menu. |
+| **Screen** | Every share in your voice room: watch one or several in the **Focus**, **Grid** or **Single** layout, with the stream's figures, who is watching, picture-in-picture and full screen. Your own share starts here. |
 | **Search** | Search messages and files. |
 | **Profile** | Display name, avatar, password, theme and sign-out. |
 | **Settings** | Everything about this PC, one page at a time: **Voice**, **Screen share**, **Shortcuts**, **Notifications**, **Window** and **About** (see below). |
 
 **Settings** lists its pages on the left and shows one at a time:
 
-- **Voice**: microphone and speakers, input and output volume, **Test the microphone**, and the speech threshold: sound below it is not sent. With **Automatic speech threshold** on (the default) Onset sets it from the noise in your room, just above its quietest moments, and shows it on the live level meter while the microphone is in use; turn it off to drag the marker yourself, just under where your voice lands. Then the input mode (**Voice activity** or **Push to talk**, with its key and release delay) and processing (echo cancellation, noise suppression, automatic gain).
-- **Screen share**: the quality and frame rate a new share starts from, whether a share carries the whole PC's sound, and how loud other people's shares play.
+- **Voice**: microphone and speakers with their volumes, the **Microphone test** with the speech threshold (sound below it is not sent), the input mode and processing. With **Automatic speech threshold** on (the default) Onset sets the threshold from the noise in your room, just above its quietest moments, and shows it on the live level meter while the microphone is in use; turn it off to drag the marker yourself, just under where your voice lands. The test names the microphone it listens to and says so if nothing arrives from it; during a call it shows your microphone in the call instead. The input mode is **Voice activity** or **Push to talk** (with its key and release delay); processing is echo cancellation, noise suppression and automatic gain.
+- **Screen share**: the quality and frame rate a new share starts from, whether a share carries the whole machine's sound, and how loud other people's shares play.
 - **Shortcuts**: the keys that work everywhere (below).
-- **Notifications**: desktop notifications, interface sounds, and what a new message does to the strip.
-- **Window**: keeping the strip above other windows, the close button, starting with Windows, and **Quit Onset**.
-- **About**: updates and the installed version, call diagnostics, the event log, and live reception counters for the call.
+- **Notifications**: desktop notifications, interface sounds and their volume, and what a new message does: open the panel, or show a preview line on the strip.
+- **Window**: keeping the strip above other windows, closing the panel when it is left alone, the close button, starting with Windows, and **Quit Onset**.
+- **About**: updates and the installed version, anonymous performance data (from 1.0.9: its switch and the last report sent), call diagnostics, the event log, and live reception counters for the call.
 
-**Where things are.** Share your screen from the panel's **Screen** tab, or with your sharing shortcut. To leave a call, use the red **Leave** button under the call in the panel, or right-click the voice room in the room list. The server button opens your saved servers, with **Disconnect** and, for people with the right role, **Administration**. **Sign out** is in **Profile**, **Quit Onset** is in **Settings → Window** and in the tray menu, and **New room** is at the bottom of the room list. The close button on the strip puts Onset in the tray and keeps your call running; click the tray icon to bring the window back. Turn off **Settings → Window → Close button keeps Onset in the tray** if you would rather it, and Alt+F4, quit Onset.
+**Where things are.** Share your screen from the panel's **Screen** tab, or with your sharing shortcut. To leave a call, use the red **Leave** button under the call in the panel, or right-click the voice room in the room list. The server button opens your saved servers, with **Disconnect** and, for people with the right role, **Administration**. Beside the server you are on, a lock says whether anyone else can listen: closed and green when your call (or, outside a call, the server's calls) is end-to-end encrypted, open and red when it is not; point at it for the reason. In a voice room, the line above **Leave** shows the call's 30-digit code. **Sign out** is in **Profile**, **Quit Onset** is in **Settings → Window** and in the tray menu, and **New room** is at the bottom of the room list. The close button on the strip puts Onset in the tray and keeps your call running; click the tray icon to bring the window back. Turn off **Settings → Window → Close button keeps Onset in the tray** if you would rather it, and Alt+F4, quit Onset.
 
 **Keyboard.** Calls are controlled only by the shortcuts you choose (below); Onset has no fixed keys of its own. The one key the window answers to is `Esc`, which closes the topmost layer: a menu, an image, the side column, then the panel.
 
@@ -149,27 +159,31 @@ The app also connects to servers running Onset Host 1.0.1 or earlier, which use 
 Each release includes a `SHA256SUMS` file. In PowerShell, from the folder you downloaded to:
 
 ```powershell
-$file = 'Onset-1.0.0-x64.msi'   # the file you downloaded
+$file = 'Onset-1.0.9-x64.msi'   # the file you downloaded
 $expected = (Select-String -Path .\SHA256SUMS -Pattern ([regex]::Escape($file) + '$')).Line.Split(' ')[0]
 $actual = (Get-FileHash ".\$file" -Algorithm SHA256).Hash
 if ($actual -eq $expected) { 'OK: the hash matches' } else { 'MISMATCH: do not install this file' }
 ```
 
-Or run `Get-FileHash .\Onset-1.0.0-x64.msi -Algorithm SHA256` and compare the result with the matching line in `SHA256SUMS` yourself (upper and lower case do not matter).
+Or run `Get-FileHash .\Onset-1.0.9-x64.msi -Algorithm SHA256` and compare the result with the matching line in `SHA256SUMS` yourself (upper and lower case do not matter).
 
 The hash confirms that your download matches the published file. It does not replace a code-signing certificate, which this project does not have. In-app updates are checked separately against the update signing key built into the app (see below).
 
 ## Updates
 
 - The app checks for a new version shortly after it starts and every few hours while it stays open, using this repository's `latest.json`. When one is available, a banner shows the version and a **Restart** button; during a call the banner waits until the call ends. You can also check from **Settings → About → Check now**. Each package is verified against the updater signature built into the app before it is installed. Packages that fail the check are not installed.
+- If a server needs a newer Onset than yours, the sign-in card says so and offers the update right there.
+- The Microsoft Store edition is updated by the Store; its own updater is off.
 
 ## Security and privacy
 
-- **Nothing is hosted by the developers.** There are no Onset accounts, relays, analytics or crash reports sent to the project. The app talks only to the servers you add, and to GitHub when it checks for updates.
+- **No Onset accounts or relays.** The app talks to the servers you add and to GitHub when it checks for updates. From 1.0.9 it also sends the developers anonymous performance data unless you turn it off (below). Nothing you say, write or share goes anywhere but your servers.
+- **Anonymous performance data** (Onset 1.0.9 and later). Every five minutes the app sends a short report: call and screen-share quality, CPU and memory use, startup time, where it crashed if it did, why a connection failed, and, once per installation, coarse hardware facts (makers and ranges, never model names). It never includes messages, file names, user or display names, server addresses, device names, audio or video, and the IP address it comes from is not kept. Reports carry no identifier of any kind: the collector adds each one to the day's totals and keeps nothing else, so what is stored is anonymous. Onset says so the first time it runs and sends nothing before; **Settings → About** shows the last report exactly as it went and turns it off. Earlier versions send the developers nothing. Details are in the [privacy policy](https://onsetvoice.com/privacy/).
 - **Server identity.** Every server has its own long-lived certificate. The app pins its fingerprint from the invite, or on first contact. If a server ever presents a different identity, the app refuses to connect and shows both the remembered and the presented fingerprints. It connects only if you explicitly choose **Trust the new identity**, which you should do only after confirming the new fingerprint with the server owner.
-- **Encryption in transit.** Control traffic uses TLS (HTTPS/WSS over QUIC), voice uses GCA4 (ChaCha20-Poly1305), and screen sharing uses DTLS-SRTP. This protects traffic between you and the server. The server decrypts and re-encrypts voice for each listener and stores messages and files, so whoever runs the server can technically access them. This is not end-to-end encryption. Only join servers run by people you trust.
+- **End-to-end encrypted calls** (Onset 1.0.9 and later, on Onset Host 1.0.5 and later). Voice, screen sharing and share audio are encrypted with keys only the people in the call hold (DAVE: MLS key exchange, AES-GCM frames). The server relays the key exchange but never has a key. It does decide who is in a call, so Onset gives the keys only to people it shows in the room, and warns you if anyone else holds them. Compare the call's 30-digit code with the others: if it matches, only the people shown in the room can listen. Encryption hides what is said and shown, not who is in a call, when, or who is speaking. A room is not end-to-end encrypted while someone in it uses an older Onset, or if the server's owner turned encrypted calls off; the lock beside the server and the line in the voice room say so.
+- **Encryption in transit.** Everything else is protected between you and the server: control traffic with TLS (HTTPS/WSS over QUIC), voice with GCA4 (ChaCha20-Poly1305) and screen sharing with DTLS-SRTP. Messages and files are not end-to-end encrypted: the server stores them, so whoever runs it can technically read them. Only join servers run by people you trust.
 - **Your sign-in** is stored on your PC, protected with Windows DPAPI for your Windows user account. Passwords are stored on the server only as bcrypt hashes.
-- **Call diagnostics.** While you are in a call, the app sends audio and screen-share statistics (packet counts, buffer depth, loss, device names, app version) to *the server you are connected to*, not to the developers. Audio, video, message text and file names are never included. The server owner can turn this off.
+- **Call diagnostics.** While you are in a call, the app sends audio and screen-share statistics (packet counts, buffer depth, loss, device names, app version) to *the server you are connected to*, not to the developers. Audio, video, message text and file names are never included. Turn this off in **Settings → About → Call diagnostics**; the server owner can also switch it off for the whole server.
 
 ## Troubleshooting
 
@@ -222,7 +236,7 @@ On servers running Onset Host 1.0.1 or earlier, chat uses TCP while voice and sc
 
 ## Uninstall
 
-Open **Settings → Apps → Installed apps**, find **Onset** and choose **Uninstall**. Settings, your remembered servers and your saved sign-in live in your Windows profile under `%APPDATA%\com.onset.desktop` and `%LOCALAPPDATA%\com.onset.desktop`. Delete those folders if you want to remove them as well. Messages and files are stored on the servers, not on your PC.
+Open **Settings → Apps → Installed apps**, find **Onset** (or **Onset Voice** for the Microsoft Store edition) and choose **Uninstall**. The installer's edition keeps settings, your remembered servers and your saved sign-in in your Windows profile under `%APPDATA%\com.onset.desktop` and `%LOCALAPPDATA%\com.onset.desktop`; delete those folders if you want to remove them as well. The Store edition keeps them inside its package, and Windows removes them with it. Messages and files are stored on the servers, not on your PC.
 
 ## Support
 
@@ -242,3 +256,5 @@ This version of Onset is freeware: free to use, and you may share unmodified cop
 Onset is built on open-source components. Their licenses and full license texts are in `THIRD-PARTY-NOTICES.md`, which is installed next to the program and attached to every release.
 
 This repository contains release files only. The source code is not published here.
+
+Onset is an independent project and is not affiliated with, endorsed by or sponsored by Discord, TeamSpeak, Mumble, Microsoft, Cloudflare or GitHub. Discord is a trademark of Discord Inc.; Microsoft, Windows, Microsoft Store, Microsoft Edge and WebView2 are trademarks of the Microsoft group of companies; other names are trademarks of their owners.
